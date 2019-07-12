@@ -3,7 +3,7 @@ import './App.css';
 import Detail from './ components/Detail';
 import Welcome from './ components/Welcome';
 import List from './ components/List';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 
 import { BrowserRouter } from 'react-router-dom';
 function App() {
@@ -13,7 +13,8 @@ function App() {
 
       <Switch>
         <Route path='/' exact component={Welcome} />
-        <Route path='/hero/:id' exact component={Detail} />
+        <Route path='/hero/:id' component={Detail} />
+        <Redirect from='*' to='/' />
       </Switch>
     </BrowserRouter>
   );
