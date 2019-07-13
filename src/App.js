@@ -1,6 +1,5 @@
 import React from 'react';
 import './App.css';
-import Detail from './components/Detail';
 import Welcome from './components/Welcome';
 import HeroListContainer from './components/HeroList/HeroList.container';
 import { Switch, Route, Redirect } from 'react-router-dom';
@@ -9,9 +8,12 @@ import thunk from 'redux-thunk';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import heroesReducer from './components/HeroList/HeroList.reducer';
+import detailReducer from './components/HeroDetail/HeroDetail.reducer';
+import HeroDetailContainer from './components/HeroDetail/HeroDetail.container';
 
 const rootReducer = combineReducers({
-  heroes: heroesReducer
+  heroes: heroesReducer,
+  detail: detailReducer,
 });
 
 const store = createStore(rootReducer, applyMiddleware(thunk));
@@ -25,7 +27,7 @@ function App() {
 
         <Switch>
           <Route path='/' exact component={Welcome} />
-          <Route path='/hero/:id' component={Detail} />
+          <Route path='/hero/:id' component={HeroDetailContainer} />
           <Redirect from='*' to='/' />
         </Switch>
       </BrowserRouter>
