@@ -1,4 +1,4 @@
-import { FETCH_FAILURE, FETCH_HEROES, FETCH_SUCCESS } from './HeroList.actions';
+import { FETCH_FAILURE, FETCH_START, FETCH_SUCCESS } from './HeroList.actions';
 
 const initial = {
   items: [],
@@ -10,7 +10,7 @@ const heroesReducer = (state = initial, action) => {
 
   switch (action.type) {
 
-    case FETCH_HEROES:
+    case FETCH_START:
       return {
         ...state,
         loading: true,
