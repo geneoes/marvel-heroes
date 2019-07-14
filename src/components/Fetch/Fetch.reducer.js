@@ -30,7 +30,6 @@ const fetchReducer = (state = initial, action) => {
         ...state,
         loading: false,
         error: action.payload,
-        data: null,
       };
 
     default:
