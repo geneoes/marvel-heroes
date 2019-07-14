@@ -7,8 +7,12 @@ export const FETCH_HERO_FAILURE = '[Hero detail] FETCH_FAILURE';
 
 export function fetchHeroDetail(id) {
 
-  return (dispatch) => {
+  return (dispatch, getState) => {
     
+    if (getState().detail[id]) {
+      return; // @NOTE: avoid re-fetching same detail
+    }
+
     dispatch(fetchStart(id));
 
     setTimeout(() => {
