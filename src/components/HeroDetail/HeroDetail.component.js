@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 
-function HeroDetail({ detail, loading, loadDetail }) {
+function HeroDetail({ data, loading, loadDetail }) {
 
   useEffect(() => loadDetail(), [loadDetail])
 
   return loading ? <span>{'loading...'}</span> : (
     <pre>
-      { JSON.stringify(detail, null, 2)}
+      { JSON.stringify(data, null, 2)}
     </pre>
   )
 }

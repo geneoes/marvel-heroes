@@ -1,38 +1,38 @@
-import { FETCH_FAILURE, FETCH_START, FETCH_SUCCESS } from './HeroDetail.actions';
+import { FETCH_HERO_START, FETCH_HERO_SUCCESS, FETCH_HERO_FAILURE } from './HeroDetail.actions';
+import { fetchFailure, fetchStart, fetchSuccess } from '../Fetch/Fetch.actions';
+import fetchReducer from '../Fetch/Fetch.reducer';
 
 const initial = {}
 
-const detailReducer = (state = initial, action) => {
+const detailReducer = (state = initial, { type, payload }) => {
 
-  switch (action.type) {
+  switch (type) {
 
-    case FETCH_START:
+    case FETCH_HERO_START:
       return {
         ...state,
-        [action.payload]: {
-          loading: true,
-          error: null,
-        }        
+        [payload.id]: fetchReducer(
+          state[payload.id],
+          fetchStart()
+        )
       };
 
-    case FETCH_SUCCESS:
+    case FETCH_HERO_SUCCESS:
       return {
         ...state,
-        [action.payload.id]: {
-          loading: false,
-          error: null,
-          detail: action.payload,
-        }
+        [payload.id]: fetchReducer(
+          state[payload.id],
+          fetchSuccess({...payload.data})
+        )
       };
 
-    case FETCH_FAILURE:
+    case FETCH_HERO_FAILURE:
       return {
         ...state,
-        [action.payload.id]: {
-          loading: false,
-          error: action.payload,
-          detail: null,
-        }
+        [payload.id]: fetchReducer(
+          state[payload.id],
+          fetchFailure({...payload.error})
+        )
       };
 
     default:
