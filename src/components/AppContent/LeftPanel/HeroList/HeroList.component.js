@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import ErrorTryAgain from '../../../ErrorTryAgain/ErrorTryAgain.component';
 import HeroCard from './HeroCard/HeroCard.component';
+import Loader from '../../../Loader/Loader.component';
 
 
 function HeroList({ heroes, loadHeroes, loading, error }) {
@@ -14,7 +15,7 @@ function HeroList({ heroes, loadHeroes, loading, error }) {
   }
 
   if (loading) {
-    return <span>{'loading...'}</span>;
+    return <Loader />
   }
 
   const style = {
