@@ -5,7 +5,7 @@ import { fetchHeroDetail } from './HeroDetail.actions';
 
 const stateToProps = ({ detail }, { match }) => {
   return detail[match.params.id] || {
-    data: {},
+    data: null,
     loading: false,
     error: null
   };
