@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import ErrorTryAgain from '../ErrorTryAgain/ErrorTryAgain.component';
+import ErrorTryAgain from '../../../ErrorTryAgain/ErrorTryAgain.component';
 
 function HeroDetail({ data, error, loading, loadDetail }) {
 

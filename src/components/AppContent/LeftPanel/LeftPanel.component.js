@@ -1,11 +1,11 @@
 import React from 'react';
-import HeroListContainer from '../../HeroList/HeroList.container';
+import HeroListContainer from './HeroList/HeroList.container';
 
 function LeftPanel() {
 
   const style = {
-    width: '30%',
-    minWidth: '30%',
+    width: '20%',
+    minWidth: '20%',
     backgroundColor: 'lightblue',
     overflow: 'auto',
     height: '100%',

@@ -5,8 +5,8 @@ import { createStore, combineReducers, applyMiddleware } from "redux";
 import thunk from 'redux-thunk';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import heroesReducer from './components/HeroList/HeroList.reducer';
-import detailReducer from './components/HeroDetail/HeroDetail.reducer';
+import heroesReducer from './components/AppContent/LeftPanel/HeroList/HeroList.reducer'
+import detailReducer from './components/AppContent/RightPanel/HeroDetail/HeroDetail.reducer';
 import AppContent from './components/AppContent/AppContent.component';
 
 const rootReducer = combineReducers({

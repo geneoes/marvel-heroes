@@ -1,6 +1,6 @@
 import { FETCH_HEROES_FAILURE, FETCH_HEROES_START, FETCH_HEROES_SUCCESS } from './HeroList.actions';
-import { fetchFailure, fetchStart, fetchSuccess } from '../Fetch/Fetch.actions';
-import fetchReducer from '../Fetch/Fetch.reducer';
+import { fetchFailure, fetchStart, fetchSuccess } from '../../../Fetch/Fetch.actions';
+import fetchReducer from '../../../Fetch/Fetch.reducer';
 
 const initial = {
   data: [],

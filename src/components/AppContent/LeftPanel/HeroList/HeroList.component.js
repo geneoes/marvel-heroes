@@ -1,7 +1,9 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import ErrorTryAgain from '../ErrorTryAgain/ErrorTryAgain.component';
+import ErrorTryAgain from '../../../ErrorTryAgain/ErrorTryAgain.component';
+import HeroCard from './HeroCard/HeroCard.component';
+
 
 function HeroList({ heroes, loadHeroes, loading, error }) {
 
@@ -15,16 +17,26 @@ function HeroList({ heroes, loadHeroes, loading, error }) {
     return <span>{'loading...'}</span>;
   }
 
+  const style = {
+    container: {
+      display: 'flex',
+      flexDirection: 'column',
+    }, 
+    link: {
+       color: 'inherit', textDecoration: 'inherit'
+    }
+  }
+
   return (
-    <ul>
+    <div style={style.container}>
       {
         heroes.map(hero => (
-          <li key={hero.id}>
-            <Link to={`/hero/${hero.id}`}>{hero.name}</Link>
-          </li>
+          <Link style={style.link} key={hero.id} to={`/hero/${hero.id}`}>
+            <HeroCard hero={hero}/>
+          </Link>
         ))
       }
-    </ul>
+    </div>
   )
 }
 

@@ -1,11 +1,11 @@
 import React from 'react';
-import HeroDetailContainer from '../../HeroDetail/HeroDetail.container';
+import HeroDetailContainer from './HeroDetail/HeroDetail.container';
 import { Route, Redirect } from 'react-router-dom';
 import Welcome from '../../Welcome';
 function RightPanel() {
 
   const style = {
-    width: '70%',
+    width: '80%',
     backgroundColor: 'whitesmoke',
     overflow: 'auto',
     heigth: '100%',
