@@ -1,5 +1,32 @@
 import React, { useEffect } from 'react';
 import ErrorTryAgain from '../../../ErrorTryAgain/ErrorTryAgain.component';
+import Loader from '../../../Loader/Loader.component';
+
+
+function LinksList({urls}) {
+
+  const style = {
+    container: {
+      textDecoration: 'none',
+    },
+    links: {
+      textDecoration: 'none',
+      color: '#525251'
+    }
+  }
+  return urls && (
+    <ul>
+      {
+        urls.map(item => (
+          <li>
+            <a style={style.links}target='_blank' rel="noopener noreferrer" href={item.url}>{item.type}</a>
+          </li>
+        ))
+      }
+    </ul>    
+  )
+}
+
 
 function HeroDetail({ data, error, loading, loadDetail }) {
 
@@ -10,11 +37,11 @@ function HeroDetail({ data, error, loading, loadDetail }) {
   }
 
   if (loading) {
-    return <span>{'loading...'}</span>;
+    return <Loader />;
   }
 
   const style = {
-    description: {
+    information: {
       padding: '20px',
       margin: '10px auto',
       fontSize: '22px',
@@ -29,7 +56,7 @@ function HeroDetail({ data, error, loading, loadDetail }) {
     },
     photo: {
       border: '2px solid black',
-      maxWidth: '40%',
+      maxWidth: '30%',
       display: 'block',
       margin: '16px auto',
     },
@@ -39,7 +66,8 @@ function HeroDetail({ data, error, loading, loadDetail }) {
     <div style={style.container}>
       <div style={style.header}>{data.name}</div>
       <img style={style.photo} alt={`Cover of ${data.name}`} src={`${data.thumbnail.path}.${data.thumbnail.extension}`} />
-      <p style={style.description}>{data.description || '< No description found >'}</p>
+        <p style={style.information}>{data.description || '< No description found >'}</p>
+        <LinksList urls={data.urls} />
     </div>
   )
 }
