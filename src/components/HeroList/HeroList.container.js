@@ -4,7 +4,7 @@ import HeroList from './HeroList.component';
 import { fetchHeroes } from './HeroList.actions';
 
 const stateToProps = (state) => ({
-  heroes: state.heroes.items,
+  heroes: state.heroes.data,
   loading: state.heroes.loading,
   error: state.heroes.error,
 })
