@@ -1,7 +1,7 @@
 import { FETCH_MANY_START, FETCH_MANY_SUCCESS, FETCH_MANY_FAILURE, CLEAR_LIST } from './heroes.actions';
 import { fetchFailure, fetchStart, fetchSuccess } from '../Fetch/Fetch.actions';
 import fetchReducer from '../Fetch/Fetch.reducer';
-import _union from 'lodash/union'
+import _union from 'lodash.union'
 
 const initial = {
   data: [],
