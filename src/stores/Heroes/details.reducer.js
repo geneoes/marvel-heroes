@@ -31,7 +31,6 @@ const detailsReducer = (state = initial, action) => {
       }
 
     case FETCH_ONE_SUCCESS: 
-    // debugger
       return {
         ...state,
         [payload.id]: fetchReducer(

@@ -14,7 +14,6 @@ import listReducer from './list.reducer';
 
 const initial = {
   nameStartsWith: '',
-  offset: 0,
   limit: 2, // @NOTE: Low limit to test incremental fetch
   list: {
     data: [],
@@ -48,7 +47,6 @@ const heroesReducer = (state = initial, action) => {
     case CLEAR_LIST: 
       return {
         ...state,
-        offset: 0,
         list: listReducer(state.list, action),
       }
 

@@ -19,14 +19,18 @@ export function addManyDetails(details) {
 
 export function fetchOne(id) {
   return (dispatch, getState) => {
-
+    
     if (getState().details[id]) {
       return; // @NOTE: avoid re-fetching same detail;
     }
 
-    axios.get(`https://gateway.marvel.com/v1/public/characters?id=${id}&apikey=${process.env.REACT_APP_ENV_KEYS_MARVEN}`)
-      .then((response) => dispatch(fetchOneSuccess(response.data.data.results[0], id)))
-      .catch(error => dispatch(fetchOneFailure(error, id)));
+    dispatch({ type: FETCH_ONE_START, payload: { id }})
+
+    setTimeout(((id) => {
+      axios.get(`https://gateway.marvel.com/v1/public/characters?id=${id}&apikey=${process.env.REACT_APP_ENV_KEYS_MARVEN}`)
+        .then((response) => dispatch(fetchOneSuccess(response.data.data.results[0], id)))
+        .catch(error => dispatch(fetchOneFailure(error, id)));
+    }), 800, id); // @NOTE: delay for testing loader
   }
 }
 
@@ -40,11 +44,11 @@ export function fetchOneFailure(error, id) {
 
 export function fetchHeroes() {
   return (dispatch, getState) => {
-    const { offset: currentOffset, nameStartsWith, limit, list } = getState();
+    const { nameStartsWith, limit, list } = getState();
     
     dispatch(fetchStart(nameStartsWith));
     
-    const offset = currentOffset + list.data.length;
+    const offset = list.data.length;
     const nameFilter = nameStartsWith ? `&nameStartsWith=${nameStartsWith}` : '';
     const offsetFilter = offset ? `&offset=${offset}` : '';
     const limitFilter = limit ? `&limit=${limit}` : '';
