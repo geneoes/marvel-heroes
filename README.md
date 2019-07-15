@@ -1,12 +1,12 @@
 ## Marvel Heroes App
 
-### `Requisites`
+#### Requisites
   - A public marven api key (https://developer.marvel.com/)
 
-### `How to run`
-  - REACT_APP_ENV_KEYS_MARVEN={yourApiKey} yarn start
+#### How to run
+  `REACT_APP_ENV_KEYS_MARVEN={yourApiKey} yarn start`
 
-### `Features`
+#### `Features`
 
   - List heroes and fetch more
   - Filter heroes
@@ -14,17 +14,18 @@
   - Deep links (bookmark any hero detail)
 
 
-### `Techstack`
+#### Techstack
   
   - React.js
   - Redux
   - Thunk
 
-### `Technical notes`
+#### Technical notes
 
-  - There are a few comments with '@NOTE' (explanation of code) and '@TODO' (things that would be nice to have)
+  - There are a few comments with `@NOTE` (explanation of code) and `@TODO` (things that would be nice to have)
   - Example of the global state
 
+  ```
   {
     nameStartsWith: '', // search text filter
     limit: 10, // Fetch limit per request
