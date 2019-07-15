@@ -2,7 +2,7 @@ import {
   FETCH_ONE_START,
   FETCH_ONE_SUCCESS,
   FETCH_ONE_FAILURE,
-  FETCH_HEROES_SUCCESS,
+  FETCH_MANY_SUCCESS,
  } from './heroes.actions';
 import { fetchFailure, fetchStart, fetchSuccess } from '../Fetch/Fetch.actions';
 import fetchReducer from '../Fetch/Fetch.reducer';
@@ -49,7 +49,7 @@ const detailsReducer = (state = initial, action) => {
         )
       };
 
-    case FETCH_HEROES_SUCCESS: {
+    case FETCH_MANY_SUCCESS: {
       const newDetails = {};
       payload.data.forEach(hero => {
         newDetails[hero.id] = fetchReducer(undefined, fetchSuccess({...hero}))

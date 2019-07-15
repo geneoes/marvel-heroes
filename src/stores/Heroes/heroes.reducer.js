@@ -2,10 +2,9 @@ import {
   FETCH_ONE_FAILURE,
   FETCH_ONE_START,
   FETCH_ONE_SUCCESS,
-  INCREMENT_OFFSET,
-  FETCH_HEROES_START,
-  FETCH_HEROES_SUCCESS,
-  FETCH_HEROES_FAILURE,
+  FETCH_MANY_START,
+  FETCH_MANY_SUCCESS,
+  FETCH_MANY_FAILURE,
   CHANGE_FILTER,
   CLEAR_LIST
 } from './heroes.actions';
@@ -22,13 +21,7 @@ const initial = {
     loading: false,
     error: null,
   },
-  details: {
-    // heroId129038: {
-    //   data: {},
-    //   loading: false,
-    //   error: false
-    // }
-  },
+  details: {},
 }
 
 const heroesReducer = (state = initial, action) => {
@@ -44,11 +37,6 @@ const heroesReducer = (state = initial, action) => {
         details: detailsReducer(state.details, action),
       }
 
-    case INCREMENT_OFFSET: 
-      return {
-        ...state,
-        offset: state.offset + state.list.data.length,
-      }
 
     case CHANGE_FILTER: 
       return {
@@ -65,14 +53,14 @@ const heroesReducer = (state = initial, action) => {
       }
 
 
-    case FETCH_HEROES_START:
+    case FETCH_MANY_START:
       return {
         ...state,
         list: listReducer(state.list, action)
       };
 
 
-    case FETCH_HEROES_SUCCESS: 
+    case FETCH_MANY_SUCCESS: 
       return {
         ...state,
         details: detailsReducer(state.details, action),
@@ -80,7 +68,7 @@ const heroesReducer = (state = initial, action) => {
       };
     
 
-    case FETCH_HEROES_FAILURE:
+    case FETCH_MANY_FAILURE:
       return {
         ...state,
         list: listReducer(state.list, action),

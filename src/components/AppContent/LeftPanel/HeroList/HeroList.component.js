@@ -45,7 +45,7 @@ function HeroList({ heroes, loadHeroes, changeFilter, loading, error, searchText
     
     <div style={style.container}>
       <DebounceInput
-        minLength={2}
+        minLength={1}
         debounceTimeout={400}
         style={style.searchbar}
         value={searchText}
