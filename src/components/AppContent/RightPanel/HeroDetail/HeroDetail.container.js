@@ -1,10 +1,10 @@
 import { connect } from 'react-redux';
 import HeroDetail from './HeroDetail.component';
 
-import { fetchHeroDetail } from './HeroDetail.actions';
+import { fetchOne } from '../../../../stores/Heroes/heroes.actions';
 
-const stateToProps = ({ detail }, { match }) => {
-  return detail[match.params.id] || {
+const stateToProps = ({ details }, { match }) => {
+  return details[match.params.id] || {
     data: null,
     loading: false,
     error: null
@@ -12,7 +12,7 @@ const stateToProps = ({ detail }, { match }) => {
 }
 
 const dispatchToProps = (dispatch, { match }) => ({
-  loadDetail: () => dispatch(fetchHeroDetail(match.params.id)),
+  loadDetail: () => dispatch(fetchOne(match.params.id)),
 });
 
 export default connect(stateToProps, dispatchToProps)(HeroDetail);

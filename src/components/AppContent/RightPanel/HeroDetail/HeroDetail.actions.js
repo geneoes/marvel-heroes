@@ -9,7 +9,7 @@ export function fetchHeroDetail(id) {
 
   return (dispatch, getState) => {
     
-    if (getState().detail[id]) {
+    if (getState().details[id]) {
       return; // @NOTE: avoid re-fetching same detail
     }
 

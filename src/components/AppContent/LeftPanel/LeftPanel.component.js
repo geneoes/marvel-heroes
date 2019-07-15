@@ -6,9 +6,10 @@ function LeftPanel() {
   const style = {
     width: '20%',
     minWidth: '20%',
-    backgroundColor: 'lightblue',
+    backgroundColor: 'whitesmoke',
     overflow: 'auto',
     height: '100%',
+    borderRight: '2px solid black'
   }
 
   return (

@@ -1,21 +1,14 @@
 import React from 'react';
 import './App.css';
 import { Switch } from 'react-router-dom';
-import { createStore, combineReducers, applyMiddleware } from "redux";
+import { createStore, applyMiddleware } from "redux";
 import thunk from 'redux-thunk';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import heroesReducer from './components/AppContent/LeftPanel/HeroList/HeroList.reducer'
-import detailReducer from './components/AppContent/RightPanel/HeroDetail/HeroDetail.reducer';
 import AppContent from './components/AppContent/AppContent.component';
+import reducers from './stores/Heroes/heroes.reducer';
 
-const rootReducer = combineReducers({
-  heroes: heroesReducer,
-  detail: detailReducer,
-});
-
-const store = createStore(rootReducer, applyMiddleware(thunk));
-
+const store = createStore(reducers, applyMiddleware(thunk));
 
 function App() {
   return (

@@ -1,6 +1,6 @@
 import React from 'react';
 import HeroDetailContainer from './HeroDetail/HeroDetail.container';
-import { Route, Redirect } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import Welcome from '../../Welcome';
 function RightPanel() {
 
@@ -15,7 +15,6 @@ function RightPanel() {
     <div style={style}>
       <Route path='/' exact component={Welcome} />
       <Route path='/hero/:id' component={HeroDetailContainer} />
-      <Redirect from='*' to='/' />
     </div>
   );
 }

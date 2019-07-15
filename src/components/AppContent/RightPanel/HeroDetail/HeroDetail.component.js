@@ -17,8 +17,8 @@ function LinksList({urls}) {
   return urls && (
     <ul>
       {
-        urls.map(item => (
-          <li>
+        urls.map((item, index) => (
+          <li key={index}>
             <a style={style.links}target='_blank' rel="noopener noreferrer" href={item.url}>{item.type}</a>
           </li>
         ))
