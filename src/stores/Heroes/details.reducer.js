@@ -7,14 +7,7 @@ import {
 import { fetchFailure, fetchStart, fetchSuccess } from '../Fetch/Fetch.actions';
 import fetchReducer from '../Fetch/Fetch.reducer';
 
-const initial = {
-  // @NOTE: example of state
-  // 1009144: { 
-  //   data: {},
-  //   loading: false,
-  //   error: false
-  // }
-}
+const initial = {}
 
 const detailsReducer = (state = initial, action) => {
   const { type, payload } = action;
