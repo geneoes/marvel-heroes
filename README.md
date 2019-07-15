@@ -6,7 +6,7 @@
 #### How to run
   `REACT_APP_ENV_KEYS_MARVEN={yourApiKey} yarn start`
 
-#### `Features`
+#### Features
 
   - List heroes and fetch more
   - Filter heroes
