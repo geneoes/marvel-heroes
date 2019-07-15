@@ -1,9 +1,12 @@
 ## Marvel Heroes App
 
 #### Requisites
-  - A public marven api key (https://developer.marvel.com/)
+
+  - Register and get a public marven api key (https://developer.marvel.com)
+  - Authorize localhost (or other domain) as a safe one (https://developer.marvel.com/account)
 
 #### How to run
+
   `REACT_APP_ENV_KEYS_MARVEN={yourApiKey} yarn start`
 
 #### Features
