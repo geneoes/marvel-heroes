@@ -59,7 +59,7 @@ function HeroList({ heroes, loadHeroes, changeFilter, loading, error, searchText
         ))
       }
       
-      { !loading && (
+      { !loading && !error && (
           <button style={style.button} onClick={loadHeroes}>
             FETCH MORE
           </button>

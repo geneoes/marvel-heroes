@@ -19,8 +19,10 @@ export function addManyDetails(details) {
 
 export function fetchOne(id) {
   return (dispatch, getState) => {
+
+    const current = getState().details[id];
     
-    if (getState().details[id]) {
+    if (current && current.data) {
       return; // @NOTE: avoid re-fetching same detail;
     }
 
@@ -29,7 +31,7 @@ export function fetchOne(id) {
     setTimeout(((id) => {
       axios.get(`https://gateway.marvel.com/v1/public/characters?id=${id}&apikey=${process.env.REACT_APP_ENV_KEYS_MARVEN}`)
         .then((response) => dispatch(fetchOneSuccess(response.data.data.results[0], id)))
-        .catch(error => dispatch(fetchOneFailure(error, id)));
+        .catch(error => dispatch(fetchOneFailure(error.response.data, id)));
     }), 800, id); // @NOTE: delay for testing loader
   }
 }
@@ -55,7 +57,7 @@ export function fetchHeroes() {
     
     axios.get(`https://gateway.marvel.com/v1/public/characters?apikey=${process.env.REACT_APP_ENV_KEYS_MARVEN}` + nameFilter + offsetFilter + limitFilter) 
       .then((response) => dispatch(fetchSuccess(response.data.data.results)))
-      .catch(error => dispatch(fetchFailure(error)));    
+      .catch(error => dispatch(fetchFailure(error.response.data)));    
 
   }
 }
